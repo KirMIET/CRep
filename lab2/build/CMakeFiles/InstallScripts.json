@@ -1,7 +1,8 @@
 {
 	"InstallScripts" : 
 	[
-		"D:/C++ file/lab2/build/cmake_install.cmake"
+		"D:/C++ file/lab2/build/cmake_install.cmake",
+		"D:/C++ file/lab2/build/util/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

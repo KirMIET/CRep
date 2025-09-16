@@ -4,12 +4,11 @@ project(lab2)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Добавляем все исходные файлы
-add_executable(${PROJECT_NAME}
-    main.cpp
-    util/util.cpp
-    util/util.h
-)
+# Добавляем поддиректорию util
+add_subdirectory(util)
 
-# Указываем путь к заголовочным файлам
-target_include_directories(${PROJECT_NAME} PRIVATE util)
+# Создаем исполняемый файл
+add_executable(${PROJECT_NAME} main.cpp)
+
+# Связываем с библиотекой util
+target_link_libraries(${PROJECT_NAME} PRIVATE util)
