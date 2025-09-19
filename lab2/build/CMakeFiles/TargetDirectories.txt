@@ -1,4 +1,6 @@
-D:/C++ file/lab2/build/CMakeFiles/lab2.dir
-D:/C++ file/lab2/build/CMakeFiles/ALL_BUILD.dir
-D:/C++ file/lab2/build/CMakeFiles/ZERO_CHECK.dir
-D:/C++ file/lab2/build/util/CMakeFiles/util.dir
+/workspaces/CRep/lab2/build/CMakeFiles/lab2.dir
+/workspaces/CRep/lab2/build/CMakeFiles/edit_cache.dir
+/workspaces/CRep/lab2/build/CMakeFiles/rebuild_cache.dir
+/workspaces/CRep/lab2/build/util/CMakeFiles/util.dir
+/workspaces/CRep/lab2/build/util/CMakeFiles/edit_cache.dir
+/workspaces/CRep/lab2/build/util/CMakeFiles/rebuild_cache.dir
