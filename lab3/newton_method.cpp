@@ -1,6 +1,7 @@
 #include <iostream>
-#include <cmath>
+//#include <cmath>
 #include <stdexcept>
+
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 
