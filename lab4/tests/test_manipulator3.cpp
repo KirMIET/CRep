@@ -1,7 +1,6 @@
 #define _USE_MATH_DEFINES
 #include <gtest/gtest.h>
 #include <sstream>
-#include <cmath>
 #include "iomanipulators/manipulator3.h"
 
 using namespace iomanipulators;
@@ -28,4 +27,10 @@ TEST(SinManipulatorTest, MorePi) {
     std::ostringstream oss;
     oss << iomanipulators::sin << 2*pi;
     EXPECT_EQ(oss.str(), "sin(2*pi)");
+}
+
+TEST(SinManipulatorTest, DoublePi) {
+    std::ostringstream oss;
+    oss << iomanipulators::sin << 2.5*pi;
+    EXPECT_EQ(oss.str(), "sin(2.5*pi)");
 }

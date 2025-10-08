@@ -5,32 +5,27 @@
 #include <sstream>
 #include <string>
 #include <type_traits>
-#include <cmath>
 
 namespace iomanipulators {
 
-constexpr double MANIP_PI_VALUE = 3.14159265358979323846;
-
 // --- Теги для pi и выражений ---
 struct PiTag {
-    constexpr operator double() const noexcept { return MANIP_PI_VALUE; }
 };
 extern const PiTag pi;
 
 struct PiExpr {
     double k;
     constexpr explicit PiExpr(double kk) : k(kk) {}
-    constexpr operator double() const noexcept { return k * MANIP_PI_VALUE; }
 };
 
 inline PiExpr operator*(double k, const PiTag &) { return PiExpr(k); }
 inline PiExpr operator*(int k, const PiTag &) { return PiExpr(static_cast<double>(k)); }
 
-// --- Манипулятор sin ---
+// Манипулятор sin 
 struct SinManipulator {};
 extern const SinManipulator sin;
 
-// --- Прокси для вывода ---
+//Прокси для вывода
 class SinProxy {
 public:
     explicit SinProxy(std::ostream &os) : os_(&os) {}
@@ -52,14 +47,12 @@ public:
         return *os_;
     }
 
-    std::ostream &operator<<(const PiTag &p) {
-        double val = static_cast<double>(p);
+    std::ostream &operator<<(const PiTag &) {
         (*os_) << "sin(pi)";
         return *os_;
     }
 
     std::ostream &operator<<(const PiExpr &expr) {
-        double val = static_cast<double>(expr);
         (*os_) << "sin(" << expr.k << "*pi)";
         return *os_;
     }

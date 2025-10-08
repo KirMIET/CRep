@@ -9,7 +9,7 @@ AddProxy& AddProxy::operator<<(double value) {
     } else {
         long double sum = first + static_cast<long double>(value);
 
-        // Выводим сумму. Поток сам решит формат (если это целое — выведется без ".0")
+        // Выводим сумму в поток
         os_ << sum;
 
         hasFirst = false; // сброс для повторного использования
