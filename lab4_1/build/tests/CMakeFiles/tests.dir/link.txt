@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/tests.dir/test_global.cpp.o -o tests  ../src/libiomanipulators.a ../_deps/catch2-build/src/libCatch2Main.a ../_deps/catch2-build/src/libCatch2.a 

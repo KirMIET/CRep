@@ -1,0 +1,2 @@
+/usr/bin/ar qc libiomanipulators.a CMakeFiles/iomanipulators.dir/manipulator1.cpp.o CMakeFiles/iomanipulators.dir/manipulator2.cpp.o CMakeFiles/iomanipulators.dir/manipulator3.cpp.o
+/usr/bin/ranlib libiomanipulators.a

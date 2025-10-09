@@ -1,0 +1,17 @@
+/workspaces/CRep/lab4_1/build/CMakeFiles/edit_cache.dir
+/workspaces/CRep/lab4_1/build/CMakeFiles/rebuild_cache.dir
+/workspaces/CRep/lab4_1/build/_deps/catch2-build/CMakeFiles/edit_cache.dir
+/workspaces/CRep/lab4_1/build/_deps/catch2-build/CMakeFiles/rebuild_cache.dir
+/workspaces/CRep/lab4_1/build/_deps/catch2-build/src/CMakeFiles/Catch2.dir
+/workspaces/CRep/lab4_1/build/_deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir
+/workspaces/CRep/lab4_1/build/_deps/catch2-build/src/CMakeFiles/edit_cache.dir
+/workspaces/CRep/lab4_1/build/_deps/catch2-build/src/CMakeFiles/rebuild_cache.dir
+/workspaces/CRep/lab4_1/build/src/CMakeFiles/iomanipulators.dir
+/workspaces/CRep/lab4_1/build/src/CMakeFiles/edit_cache.dir
+/workspaces/CRep/lab4_1/build/src/CMakeFiles/rebuild_cache.dir
+/workspaces/CRep/lab4_1/build/tests/CMakeFiles/tests.dir
+/workspaces/CRep/lab4_1/build/tests/CMakeFiles/edit_cache.dir
+/workspaces/CRep/lab4_1/build/tests/CMakeFiles/rebuild_cache.dir
+/workspaces/CRep/lab4_1/build/app/CMakeFiles/main_app.dir
+/workspaces/CRep/lab4_1/build/app/CMakeFiles/edit_cache.dir
+/workspaces/CRep/lab4_1/build/app/CMakeFiles/rebuild_cache.dir
