@@ -9,6 +9,8 @@
 #include "iomanipulators/manipulator2.h"
 #include "iomanipulators/manipulator3.h"
 
+using namespace iomanipulators;
+
 TEST_CASE("iomanip::simple")
 {
     std::stringstream s;
@@ -16,20 +18,12 @@ TEST_CASE("iomanip::simple")
     CHECK(s.str() == "some text[eol]\n");
 }
 
-// TEST_CASE("iomanip::one_operand")
-// {
-//     std::stringstream s;
-//     static_assert(!std::is_same_v<decltype(s << squares), std::ostream&>);
-//     s << "some test " << squares << 123 << " and " << squares << "me" << squares << -88.59;
-//     CHECK(s.str() == "some test [123] and [me][-88.59]");
-// }
-
 TEST_CASE("iomanip::two_operands")
 {
     std::stringstream s;
     static_assert(!std::is_same_v<decltype(s << add), std::ostream&>);
     static_assert(!std::is_same_v<decltype(s << add << 48), std::ostream&>);
-    //static_assert(std::is_same_v<decltype(s << add << 48 << 56), std::ostream&>);
+    static_assert(std::is_same_v<decltype(s << add << 48 << 56), std::ostream&>);
 
     SECTION("int")
     {
@@ -48,5 +42,54 @@ TEST_CASE("iomanip::two_operands")
     {
         s << "get => " << add << 45.89 << 32.177 << " <=";
         CHECK(s.str() == "get => 78.067 <=");
+    }
+}
+
+TEST_CASE("Sin manipulator basic functionality") {
+    std::stringstream ss;
+
+    SECTION("Output with integer number") {
+        ss << iomanipulators::sin << 5;
+        REQUIRE(ss.str() == "5.0");
+    }
+
+    SECTION("Output with floating point number") {
+        ss << iomanipulators::sin << 3.14;
+        REQUIRE(ss.str() == "3.14");
+    }
+
+    SECTION("Output with scientific notation number") {
+        ss << iomanipulators::sin << 1.5e-3;
+        REQUIRE(ss.str() == "0.0015"); // Формат может отличаться в зависимости от системы
+    }
+
+    SECTION("Output with pi tag") {
+        ss << iomanipulators::sin << pi;
+        REQUIRE(ss.str() == "sin(pi)");
+    }
+
+    SECTION("Output with pi expression") {
+        ss << iomanipulators::sin << (2.5 * pi);
+        REQUIRE(ss.str() == "sin(2.5*pi)");
+    }
+
+    SECTION("Output with integer pi expression") {
+        ss << iomanipulators::sin << (3 * pi);
+        REQUIRE(ss.str() == "sin(3*pi)");
+    }
+}
+
+TEST_CASE("Sin manipulator in chain operations") {
+    std::stringstream ss;
+
+    SECTION("Multiple sin operations") {
+        ss << "Start: " << iomanipulators::sin << 1 << ", Middle: " 
+           << iomanipulators::sin << pi << ", End";
+        REQUIRE(ss.str() == "Start: 1.0, Middle: sin(pi), End");
+    }
+
+    SECTION("Sin with different numeric types") {
+        ss << iomanipulators::sin << 10 << " | " << iomanipulators::sin << 7.5;
+        REQUIRE(ss.str() == "10.0 | 7.5");
     }
 }

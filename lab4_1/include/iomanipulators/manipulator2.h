@@ -5,32 +5,75 @@
 #include <type_traits>
 #include <utility>
 
-class AddProxy {
+// Базовый шаблон для определения типа возврата
+template<typename T>
+struct is_add_proxy : std::false_type {};
+
+// Прокси для выполнения операции сложения - первый операнд
+class AddProxyFirst {
 public:
-    explicit AddProxy(std::ostream& os);
+    explicit AddProxyFirst(std::ostream& os) : os_(os) {}
 
-    // Обработка чисел 
-    AddProxy& operator<<(double value);
+    // Обработка числовых типов - переходим к ожиданию второго операнда
+    template<typename T>
+    std::enable_if_t<std::is_arithmetic_v<T>, class AddProxySecond>
+    operator<<(T value) {
+        return AddProxySecond(os_, static_cast<long double>(value));
+    }
 
-    // Шаблон — только для не-арифметических типов (строки, манипуляторы, объекты и т.д.)
-    template <typename T,
-              typename Decayed = typename std::decay<T>::type,
-              typename = typename std::enable_if<!std::is_arithmetic<Decayed>::value>::type>
-    AddProxy& operator<<(T&& val) {
+    // Обработка нечисловых типов
+    template<typename T>
+    std::enable_if_t<!std::is_arithmetic_v<std::decay_t<T>>, AddProxyFirst&>
+    operator<<(T&& val) {
         os_ << std::forward<T>(val);
         return *this;
     }
 
 private:
     std::ostream& os_;
-    bool hasFirst;
-    long double first; // храним как long double для лучшей точности при суммах
 };
 
-// Функция-манипулятор 
-AddProxy add(std::ostream& os);
+// Прокси для выполнения операции сложения - второй операнд
+class AddProxySecond {
+public:
+    AddProxySecond(std::ostream& os, long double first)
+        : os_(os), first_(first) {}
 
-// Перегрузка для std::cout << add
-AddProxy operator<<(std::ostream& os, AddProxy (*f)(std::ostream&));
+    // Обработка числовых типов - выполняем сложение и возвращаем поток
+    template<typename T>
+    std::enable_if_t<std::is_arithmetic_v<T>, std::ostream&>
+    operator<<(T value) {
+        os_ << (first_ + static_cast<long double>(value));
+        return os_;
+    }
+
+    // Обработка нечисловых типов
+    template<typename T>
+    std::enable_if_t<!std::is_arithmetic_v<std::decay_t<T>>, AddProxySecond&>
+    operator<<(T&& val) {
+        os_ << std::forward<T>(val);
+        return *this;
+    }
+
+private:
+    std::ostream& os_;
+    long double first_;
+};
+
+// Специализации для определения типов прокси
+template<>
+struct is_add_proxy<AddProxyFirst> : std::true_type {};
+
+template<>
+struct is_add_proxy<AddProxySecond> : std::true_type {};
+
+// Тег манипулятора
+struct AddTag {};
+inline constexpr AddTag add{};
+
+// Перегрузка оператора для std::ostream << add
+inline AddProxyFirst operator<<(std::ostream& os, AddTag) {
+    return AddProxyFirst(os);
+}
 
 #endif // MANIPULATOR2_H

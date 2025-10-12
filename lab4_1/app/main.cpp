@@ -17,8 +17,11 @@ void demonstrate_add() {
     cout << add << 3.2 << 3.2;
     cout << endl;
     cout << add << 124 << 589 << " == " << 713;
+    cout << endl;
     cout << add << "abc"s << "efg"s << " text";
+    cout << endl;
     cout << "get => " << add << 45.89 << 32.177 << " <=";
+    cout << endl;
 }
 
 void demonstrate_sin(){
