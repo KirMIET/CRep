@@ -30,6 +30,7 @@ void demonstrate_sin(){
     cout << iomanipulators::sin << pi << endl;
     cout << iomanipulators::sin << 2*pi << endl;
     cout << iomanipulators::sin << 2.5*pi << endl;
+    cout << iomanipulators::sin << "3423" << endl;
 }
 
 int main() {

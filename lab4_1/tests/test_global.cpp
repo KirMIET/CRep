@@ -60,7 +60,7 @@ TEST_CASE("Sin manipulator basic functionality") {
 
     SECTION("Output with scientific notation number") {
         ss << iomanipulators::sin << 1.5e-3;
-        REQUIRE(ss.str() == "0.0015"); // Формат может отличаться в зависимости от системы
+        REQUIRE(ss.str() == "0.0015"); 
     }
 
     SECTION("Output with pi tag") {
