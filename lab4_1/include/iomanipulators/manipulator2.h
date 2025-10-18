@@ -50,7 +50,7 @@ public:
     // Обработка нечисловых типов
     template<typename T>
     std::enable_if_t<!std::is_arithmetic_v<std::decay_t<T>>, AddProxySecond&>
-    operator<<(T&& val) {
+    operator<<(T val) {
         os_ << std::forward<T>(val);
         return *this;
     }
@@ -67,7 +67,6 @@ struct is_add_proxy<AddProxyFirst> : std::true_type {};
 template<>
 struct is_add_proxy<AddProxySecond> : std::true_type {};
 
-// Тег манипулятора
 struct AddTag {};
 inline constexpr AddTag add{};
 

@@ -78,7 +78,7 @@
 
 namespace iomanipulators {
 
-// --- Теги для pi и выражений ---
+// Теги для pi и выражений
 struct PiTag {};
 extern const PiTag pi;
 
@@ -94,12 +94,12 @@ inline PiExpr operator*(int k, const PiTag &) { return PiExpr(static_cast<double
 struct SinManipulator {};
 extern const SinManipulator sin;
 
-// --- Прокси для вывода ---
+// Прокси для вывода
 class SinProxy {
 public:
     explicit SinProxy(std::ostream &os) : os_(&os) {}
 
-    // --- Для чисел ---
+    // Для чисел 
     template<typename T>
     std::enable_if_t<std::is_arithmetic_v<T>, std::ostream &>
     operator<<(T value) {
@@ -117,7 +117,7 @@ public:
         return *os_;
     }
 
-    // --- Для строк и символов ---
+    // Для строк и символов 
     std::ostream &operator<<(const std::string &text) {
         (*os_) << text;
         return *os_;
@@ -133,7 +133,7 @@ public:
         return *os_;
     }
 
-    // --- Для pi и выражений ---
+    // Для pi и выражений 
     std::ostream &operator<<(const PiTag &) {
         (*os_) << "sin(pi)";
         return *os_;
@@ -148,7 +148,7 @@ private:
     std::ostream *os_;
 };
 
-// --- Перегрузка оператора << для инициализации ---
+// Перегрузка оператора << для инициализации 
 inline SinProxy operator<<(std::ostream &os, const SinManipulator &) {
     return SinProxy(os);
 }
