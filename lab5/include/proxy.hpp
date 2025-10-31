@@ -15,7 +15,7 @@ class ptr_holder
 public:
     ptr_holder(T* ptr): ptr_(ptr) {}
 
-    //{ describe proxy object
+    //{ proxy object
     class proxy
     {
     public:
