@@ -1,0 +1,12 @@
+/workspaces/CRep/lab7/build/CMakeFiles/variant_tests.dir
+/workspaces/CRep/lab7/build/CMakeFiles/test.dir
+/workspaces/CRep/lab7/build/CMakeFiles/edit_cache.dir
+/workspaces/CRep/lab7/build/CMakeFiles/rebuild_cache.dir
+/workspaces/CRep/lab7/build/_deps/catch2-build/CMakeFiles/test.dir
+/workspaces/CRep/lab7/build/_deps/catch2-build/CMakeFiles/edit_cache.dir
+/workspaces/CRep/lab7/build/_deps/catch2-build/CMakeFiles/rebuild_cache.dir
+/workspaces/CRep/lab7/build/_deps/catch2-build/src/CMakeFiles/Catch2.dir
+/workspaces/CRep/lab7/build/_deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir
+/workspaces/CRep/lab7/build/_deps/catch2-build/src/CMakeFiles/test.dir
+/workspaces/CRep/lab7/build/_deps/catch2-build/src/CMakeFiles/edit_cache.dir
+/workspaces/CRep/lab7/build/_deps/catch2-build/src/CMakeFiles/rebuild_cache.dir
