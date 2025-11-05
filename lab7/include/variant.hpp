@@ -27,7 +27,7 @@ using array = std::vector<number>;
 struct recursive_array : public std::vector<std::variant<number, std::shared_ptr<recursive_array>>>
 {
     using base = std::vector<std::variant<number, std::shared_ptr<recursive_array>>>;
-    using base::base;  // inherit constructors
+    using base::base;  
 };
 //}
 

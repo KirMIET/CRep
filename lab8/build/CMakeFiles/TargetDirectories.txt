@@ -1,0 +1,4 @@
+/workspaces/CRep/lab8/build/CMakeFiles/tests.dir
+/workspaces/CRep/lab8/build/CMakeFiles/test.dir
+/workspaces/CRep/lab8/build/CMakeFiles/edit_cache.dir
+/workspaces/CRep/lab8/build/CMakeFiles/rebuild_cache.dir

@@ -70,6 +70,14 @@
         "forward_list": "cpp",
         "list": "cpp",
         "unordered_set": "cpp",
-        "csignal": "cpp"
-    }
+        "csignal": "cpp",
+        "strstream": "cpp",
+        "cfenv": "cpp",
+        "complex": "cpp",
+        "source_location": "cpp",
+        "shared_mutex": "cpp",
+        "stdfloat": "cpp",
+        "typeindex": "cpp"
+    },
+    "cmake.sourceDirectory": "/workspaces/CRep/lab2"
 }
