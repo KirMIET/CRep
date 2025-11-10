@@ -14,7 +14,7 @@ TEST_CASE("variant::number")
 {
     number i = 123;
     number f = -569.6f;
-    CHECK(std::get<int>(i) == 123);
+    CHECK(std::get<int>(f) == 123);
     CHECK(std::get<float>(f) == Catch::Approx(-569.6f));
 }
 

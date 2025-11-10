@@ -53,7 +53,7 @@ namespace json::parser
     x3::rule<class key_value_class, std::pair<std::string, json::types::value>> const key_value("key_value");
     x3::rule<class quoted_string_class, std::string> const quoted_string("quoted_string");
 
-    // Простые парсеры (Parsers) 
+    // Простые парсеры  
 
     // Парсер для null
     const auto nullable = x3::lit("null") >> x3::attr(nullptr);
