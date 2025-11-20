@@ -12,20 +12,20 @@
 
 TEST_CASE("type_map::int")
 {
-    const type_map<int, int, float, uint8_t> m{4, 86, -9};
+    const type_map<int, int, float, bool> m{4, 86, -9};
 
     SECTION("std::get")
     {
         CHECK(std::get<int>(m) == 4);
         CHECK(std::get<float>(m) == 86);
-        CHECK(std::get<uint8_t>(m) == -9);
+        CHECK(std::get<bool>(m) == -9);
     }
 
     SECTION("as accessor")
     {
         CHECK(std::get<int>(m) == m.as<int>());
         CHECK(std::get<float>(m) == m.as<float>());
-        CHECK(std::get<uint8_t>(m) == m.as<uint8_t>());
+        CHECK(std::get<bool>(m) == m.as<bool>());
     }
 }
 

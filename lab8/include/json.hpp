@@ -69,8 +69,6 @@ namespace json::parser
         '"' >> *( (x3::char_ - '"' - '\\') | (x3::lit('\\') > x3::char_) ) >> '"'
     ];
 
-    // Простые типы number, quoted_string, boolean, nullable
-    // Рекурсивные типы array, object
     const auto value_def = 
           quoted_string    
         | number           

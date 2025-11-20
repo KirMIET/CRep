@@ -41,7 +41,7 @@ TEST_CASE("json::array")
 
     SECTION("different types")
     {
-        auto i = json::load_from_string<json::types::array>(R"([ "abc", "er", 123, -58.2, null, false ])", json::parser::array);
+        auto i = json::load_from_string<json::types::array>(R"([ "abc", "er", ++123, -58.2, null, false ])", json::parser::array);
         CHECK(boost::get<std::string>(i[0]) == "abc");
         CHECK(boost::get<std::string>(i[1]) == "er");
         CHECK(boost::get<int>(i[2]) == 123);
